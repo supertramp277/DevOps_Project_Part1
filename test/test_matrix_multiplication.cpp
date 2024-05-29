@@ -39,7 +39,7 @@ TEST(MatrixMultiplicationTest, TestEmptyMatrices) {
     multiplyMatrices(A, B, C, 0, 0, 0);
 
     std::vector<std::vector<int>> expected;//expected.empty()?;
-    ASSERT_EQ(C, expected);
+    ASSERT_EQ(C, expected) << "Matrix multiplication test failed! :(((()";
 }
 
 //Test Case 3: Single Element Matrix
@@ -58,7 +58,7 @@ TEST(MatrixMultiplicationTest, TestSingleElementMatrix) {
         {15}
     };
 
-    ASSERT_EQ(C, expected);
+    ASSERT_EQ(C, expected) << "Matrix multiplication test failed! :(((()";
 }
 
 //Test Case 4: Matrix with negative elements
@@ -81,7 +81,7 @@ TEST(MatrixMultiplicationTest, TestMatrixWithNegativeNumbers) {
         {-11, 48}
     };
 
-    ASSERT_EQ(C, expected);
+    ASSERT_EQ(C, expected) << "Matrix multiplication test failed! :(((()";
 }
 
 //Test Case 5: Matrix with zero matrix
@@ -106,7 +106,7 @@ TEST(MatrixMultiplicationTest, TestMatrixWithZeroMatrix) {
         {0, 0, 0}
     };
 
-    ASSERT_EQ(C, expected);
+    ASSERT_EQ(C, expected) << "Matrix multiplication test failed! :(((()";
 }  
 
 // Test Case 6: Matrix with identity matrix
@@ -131,7 +131,7 @@ TEST(MatrixMultiplicationTest, TestMatrixWithIdentityMatrix) {
         {7, 8, 9}
     };
 
-    ASSERT_EQ(C, expected);
+    ASSERT_EQ(C, expected) << "Matrix multiplication test failed! :(((()";
 }
 
 //Test Case 7: Matrix with large size
@@ -144,7 +144,7 @@ TEST(MatrixMultiplicationTest, TestMatrixWithLargeSize) {
 
     std::vector<std::vector<int>> expected(1000, std::vector<int>(1000, 0));
 
-    ASSERT_EQ(C, expected);
+    ASSERT_EQ(C, expected) << "Matrix multiplication test failed! :(((()";
 }
 
 int main(int argc, char **argv) {
