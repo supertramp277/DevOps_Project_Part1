@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up CMake
+      uses: jwlawson/actions-setup-cmake@v1
+
+    - name: Set up dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y g++ libgtest-dev
+        cd /usr/src/gtest
+        sudo cmake .
+        sudo make
+        ls -l *.a # Check if .a files exist
+        sudo cp *.a /usr/lib
+
+    - name: Create build directory
+      run: mkdir build
+
+    - name: Run CMake
+      run: cmake -S
+
+    - name: Run Tests
+      run: ctest --test-dir build
