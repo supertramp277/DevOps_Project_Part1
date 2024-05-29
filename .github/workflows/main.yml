@@ -7,17 +7,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+    - uses: actions/checkout@v2
 
     - name: Initialize and update submodules
       run: git submodule update --init --recursive
 
-    - name: Set up CMake
-      run: cmake -B build
+    - name: Setup CMake
+      uses: jwlawson/actions-setup-cmake@v1
 
-    - name: Build project
+    - name: Configure CMake
+      run: cmake -S . -B build
+
+    - name: Build
       run: cmake --build build
 
-    - name: Run gtest
-      run: cd build && ctest
+    - name: Run Tests
+      run: ctest --test-dir build
+
