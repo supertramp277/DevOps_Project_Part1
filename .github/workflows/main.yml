@@ -9,7 +9,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Initialize and update submodules
+    - name: Initialize and update submodules such as googletest in this project
       run: git submodule update --init --recursive
 
     - name: Setup CMake
